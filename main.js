@@ -1,33 +1,39 @@
 import $ from "jquery";
 
-$(document).ready(() => {
-  //Users search for valid city and state
-  function searchCity() {}
+const myArray = [];
 
-  //Retrieving Data and how/where to render
-  let weatherAppSearch =
-    "api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml";
+//Retrieving Data and how/where to render
+const WEATHER_APP_API_LOCATION =
+  "api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml";
 
-  function searchData(searchTerm, callback) {
-    const query = {
-      url: weatherAppSearch,
-      data: {
-        q: `${searchTerm} in: main, weather, clouds`
-      },
-      dataType: "json",
-      type: "GET",
-      success: callback
-    };
-    $.ajax(query);
-  }
+//Render Results
+function renderResults(list) {
+  return `
+  <h2>${list.main.temp}</h2>
+  <h3>${list.main.humidity}</h3>
+  <ul>
+  <li>${list.weather.main}</li>
+  <li>${list.weather.description}</li>
+  <li>${list.wind.speed}</li>
+  </ul>`;
+}
 
-  //Render Results
-  function renderResults() {}
+function renderResults(list) {
+  return `
+  <h2>${list.main.temp}</h2>
+  <h3>${list.main.humidity}</h3>
+  <ul>
+  <li>${list.weather.main}</li>
+  <li>${list.weather.description}</li>
+  <li>${list.wind.speed}</li>
+  </ul>`;
+}
 
-  //Callback function
-  function watchSubmit() {
-    searchData(data, renderResults);
-  }
+//Display Results
+function displaySearchData(data) {
+  const results = data.list.map((item, index) => renderResults(item));
+  $(".forecast").html(results);
+}
 
-  //$(watchSubmit);
-});
+//Render Results
+function renderResults() {}

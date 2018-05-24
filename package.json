@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ginatruong/weatherapp1#readme",
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "main.css": "0.0.1"
   }
 }
