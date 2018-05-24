@@ -1,28 +1,33 @@
-//Users search for valid city and state
-function searchCity() {}
+import $ from "jquery";
 
-//Retrieving Data and how/where to render
-let weatherAppSearch = 'api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml';
+$(document).ready(() => {
+  //Users search for valid city and state
+  function searchCity() {}
 
-function searchData(searchTerm, callback) {
-	const query = {
-		url: weatherAppSearch,
-		data: {
-			q: `${searchTerm} in: main, weather, clouds`
-		},
-		dataType: 'json',
-		type: 'GET',
-		success: callback
-	};
-	$.ajax(query);
-}
+  //Retrieving Data and how/where to render
+  let weatherAppSearch =
+    "api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml";
 
-//Render Results
-function renderResults() {}
+  function searchData(searchTerm, callback) {
+    const query = {
+      url: weatherAppSearch,
+      data: {
+        q: `${searchTerm} in: main, weather, clouds`
+      },
+      dataType: "json",
+      type: "GET",
+      success: callback
+    };
+    $.ajax(query);
+  }
 
-//Callback function
-function watchSubmit() {
-	searchData(data, renderResults);
-}
+  //Render Results
+  function renderResults() {}
 
-//$(watchSubmit);
+  //Callback function
+  function watchSubmit() {
+    searchData(data, renderResults);
+  }
+
+  //$(watchSubmit);
+});
