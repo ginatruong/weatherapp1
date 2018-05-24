@@ -1,22 +1,25 @@
-//Retrieving Data and how/where to render
-let weatherAppSearch = 'api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml';
+import $ from "jquery";
 
-function searchData(searchTerm, callback) {
-	const query = {
-		url: weatherAppSearch,
-		data: {
-			q: `${searchTerm} in: main, weather, clouds`
-		},
-		dataType: 'json',
-		type: 'GET',
-		success: callback
-	};
-	$.ajax(query);
-}
+const myArray = [];
+
+//Retrieving Data and how/where to render
+const WEATHER_APP_API_LOCATION =
+  "api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml";
 
 //Render Results
 function renderResults(list) {
-	return `
+  return `
+  <h2>${list.main.temp}</h2>
+  <h3>${list.main.humidity}</h3>
+  <ul>
+  <li>${list.weather.main}</li>
+  <li>${list.weather.description}</li>
+  <li>${list.wind.speed}</li>
+  </ul>`;
+}
+
+function renderResults(list) {
+  return `
   <h2>${list.main.temp}</h2>
   <h3>${list.main.humidity}</h3>
   <ul>
@@ -28,13 +31,9 @@ function renderResults(list) {
 
 //Display Results
 function displaySearchData(data) {
-	const results = data.list.map((item, index) => renderResults(item));
-	$('.forecast').html(results);
+  const results = data.list.map((item, index) => renderResults(item));
+  $(".forecast").html(results);
 }
 
-//Callback function
-function watchSubmit() {
-	searchData(data, renderResults);
-}
-
-//$(watchSubmit);
+//Render Results
+function renderResults() {}
