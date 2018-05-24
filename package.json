@@ -1,27 +1,27 @@
 {
-	"name": "weatherapp1",
-	"version": "1.0.0",
-	"description": "This is my super cool weather app :)",
-	"main": "main.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "parcel ./index.html",
-		"start:staging": "NODE_ENV=staging parcel ./index.html",
-		"build": "NODE_ENV=production parcel ./index.html"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ginatruong/weatherapp1.git"
-	},
-	"author": "Gina Truong",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/ginatruong/weatherapp1/issues"
-	},
-	"homepage": "https://github.com/ginatruong/weatherapp1#readme",
-	"dependencies": {
-		"config": "^1.30.0",
-		"config.js": "^0.1.0",
-		"jquery": "^3.3.1"
-	}
+  "name": "weatherapp1",
+  "version": "1.0.0",
+  "description": "This is my super cool weather app :)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel ./index.html",
+    "start:staging": "NODE_ENV=staging parcel ./index.html",
+    "build": "NODE_ENV=production parcel ./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ginatruong/weatherapp1.git"
+  },
+  "author": "Gina Truong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ginatruong/weatherapp1/issues"
+  },
+  "homepage": "https://github.com/ginatruong/weatherapp1#readme",
+  "dependencies": {
+    "config": "^1.30.0",
+    "config.js": "^0.1.0",
+    "jquery": "^3.3.1"
+  }
 }
