@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 200px;
+  background-color: dimgrey
+}
+
+input[type="text"] {
+  margin-top: 50px;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  display: block;
+  padding: 50px;
+}
+
+footer {
+  margin-top: 300px;
+  width: 100%;
+}
+
+
