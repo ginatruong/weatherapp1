@@ -9,7 +9,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin: 200px;
-  background-color: dimgrey
+  background-color: dimgrey;
+  background-image: url('https://images.pexels.com/photos/681336/pexels-photo-681336.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
 }
 
 input[type="text"] {

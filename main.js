@@ -2,8 +2,24 @@ import $ from 'jquery';
 // import { WEATHER_API_LOCATION } from './config'; /// look for const and function
 // import weatherApiService from './services';
 import allofthedefault, { getTemperatures } from './services';
+import { WEATHER_API_LOCATION } from './config';
 
 console.log(allofthedefault, getTemperatures);
+
+//Get data from API
+function getDataFromApi(searchTerm, callback) {
+	const settings = {
+		url: WEATHER_API_LOCATION,
+		data: {
+			q: `{searchTerm} in:city`
+		},
+		dataType: 'json',
+		type: 'GET',
+		success: callback
+	};
+	$.ajax(settings);
+}
+
 // console.log(getTemperatures());
 //Render Results
 function renderResults(list) {
@@ -14,6 +30,8 @@ function renderResults(list) {
   <li>${list.weather.main}</li>
   <li>${list.weather.description}</li>
   <li>${list.wind.speed}</li>
+  <li>${list.temp_min}</li>
+  <li>${list.temp_max}</li>
   </ul>`;
 }
 
@@ -23,5 +41,12 @@ function displaySearchData(data) {
 	$('.forecast').html(results);
 }
 
-//Render Results
-function renderResults() {}
+function watchSubmit() {
+	$('.#searchForm').submit((event) => {
+		event.preventDefault();
+		const cityInput = $(event.currentTarget).find('.cityInput');
+		const citySearch = cityInput.val();
+		cityInput.val('');
+		getDataFromApi(citySearch, displaySearchData);
+	});
+}
