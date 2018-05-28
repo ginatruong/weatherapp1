@@ -4,7 +4,7 @@ body {
   text-align: center;
   margin: 200px;
   background-color: dimgrey;
-  background-image: url('https://images.pexels.com/photos/681336/pexels-photo-681336.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+  background-image: url('./assets/background.jpeg');
   background-size: cover;
   max-width: 1000px;
   padding-left: 20px;

@@ -1,31 +1,28 @@
-// import $ from 'jquery';
-// import { WEATHER_API_LOCATION } from './config'; /// look for const and function
-// import weatherApiService from './services';
-// import allofthedefault, { getTemperatures } from './services';
-// import { WEATHER_API_LOCATION } from './config';
+import $ from "jquery";
+import { WEATHER_API_LOCATION, WEATHER_API_KEYS } from "./config"; /// look for const and function
 
-// console.log(allofthedefault, getTemperatures);
-
-const WEATHER_API_LOCATION =
-	'https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=21dc8127c4113d0d36a388170c2d653a';
+console.clear();
+console.log("--------- Application Rebundled ---------");
 //Get data from API
 function getDataFromApi(searchTerm, callback) {
-	const settings = {
-		url: WEATHER_API_LOCATION,
-		data: {
-			q: `{searchTerm} in:city`
-		},
-		dataType: 'json',
-		type: 'GET',
-		success: callback
-	};
-	$.ajax(settings);
+  $.ajax({
+    url: WEATHER_API_LOCATION,
+    data: {
+      //...WEATHER_API_KEYS
+      id: WEATHER_API_KEYS.id,
+      APPID: WEATHER_API_KEYS.APPID,
+      q: `${searchTerm} in:city`
+    },
+    dataType: "json",
+    type: "GET",
+    success: callback
+  });
 }
 
 // console.log(getTemperatures());
 //Render Results
 function renderResults(list) {
-	return `
+  return `
   <h2>${list.main.temp}</h2>
   <h3>${list.main.humidity}</h3>
   <ul>
@@ -39,16 +36,13 @@ function renderResults(list) {
 
 //Display Results
 function displaySearchData(data) {
-	const results = data.list.map((item, index) => renderResults(item));
-	$('.forecast').html(results);
+  const results = data.list.map((item, index) => renderResults(item));
+  $(".forecast").html(results);
 }
 
-function watchSubmit() {
-	$('.#searchForm').submit((event) => {
-		event.preventDefault();
-		const cityInput = $(event.currentTarget).find('#cityInput');
-		const citySearch = cityInput.val();
-		cityInput.val('');
-		getDataFromApi(citySearch, displaySearchData);
-	});
-}
+$("#searchForm").submit(event => {
+  event.preventDefault();
+  const input = $("#cityInput");
+  getDataFromApi(input.val(), displaySearchData);
+  input.val("");
+});
