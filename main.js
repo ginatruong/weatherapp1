@@ -1,11 +1,13 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 // import { WEATHER_API_LOCATION } from './config'; /// look for const and function
 // import weatherApiService from './services';
-import allofthedefault, { getTemperatures } from './services';
-import { WEATHER_API_LOCATION } from './config';
+// import allofthedefault, { getTemperatures } from './services';
+// import { WEATHER_API_LOCATION } from './config';
 
-console.log(allofthedefault, getTemperatures);
+// console.log(allofthedefault, getTemperatures);
 
+const WEATHER_API_LOCATION =
+	'https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=21dc8127c4113d0d36a388170c2d653a';
 //Get data from API
 function getDataFromApi(searchTerm, callback) {
 	const settings = {
@@ -44,7 +46,7 @@ function displaySearchData(data) {
 function watchSubmit() {
 	$('.#searchForm').submit((event) => {
 		event.preventDefault();
-		const cityInput = $(event.currentTarget).find('.cityInput');
+		const cityInput = $(event.currentTarget).find('#cityInput');
 		const citySearch = cityInput.val();
 		cityInput.val('');
 		getDataFromApi(citySearch, displaySearchData);
