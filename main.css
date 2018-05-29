@@ -12,6 +12,11 @@ body {
   margin: 0 auto;
 }
 
+header h1{
+  color: teal;
+}
+
+
 input[type="text"] {
   margin-top: 50px;
   padding: 10px;
@@ -34,6 +39,29 @@ footer {
 }
 .openWeather {
     color: teal;
+}
+
+ul li {
+  list-style: none;
+  line-height: 2em;
+  display: inline-block;
+}
+
+/* .forecast {
+  border: 1px solid gray;
+} */
+
+.main-weather-section {
+  border: 1px solid gray;
+  text-align: center;
+}
+
+.img-section {
+  border: 1px solid black;
+}
+
+.weather-description {
+    text-transform: uppercase;
 }
 
 @media only screen and (max-width: 600px) {
