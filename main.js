@@ -29,11 +29,12 @@ function renderResults(list) {
   <h3 class="humidity">Humidty: ${list.main.humidity}%</h3>
   <ul class="weather-description">
   <li>${list.weather[0].description}</li>
-  <li>${list.weather[0].icon}</li>
   <li>${list.main.temp_min} | ${list.main.temp_max}</li>
   </ul>
   </div>`;
 }
+
+let degree = '$#8451';
 
 //converting Temps
 function convertingTempsF(valNumF) {
