@@ -17,7 +17,6 @@ function getDataFromApi(searchTerm, callback) {
 	});
 }
 
-// console.log(getTemperatures());
 //Render Results
 function renderResults(list) {
 	return `
@@ -30,9 +29,21 @@ function renderResults(list) {
   <h3 class="humidity">Humidty: ${list.main.humidity}%</h3>
   <ul class="weather-description">
   <li>${list.weather[0].description}</li>
+  <li>${list.weather[0].icon}</li>
   <li>${list.main.temp_min} | ${list.main.temp_max}</li>
   </ul>
   </div>`;
+}
+
+//converting Temps
+function convertingTempsF(valNumF) {
+	valNumF = parseFloat(`${list.main.temp}`);
+	$('#outputTemperature').html((valNum - 273.15) * 1.8) + 32;
+}
+
+function convertingTempsC(valNumC) {
+	valNumC = parseFloat(`${list.main.temp}`);
+	$('#outputTemperature').html(valNum - 273.15);
 }
 
 //Display Results
@@ -46,4 +57,5 @@ $('#searchForm').submit((event) => {
 	const input = $('#cityInput');
 	getDataFromApi(input.val(), displaySearchData);
 	input.val('');
+	convertingTemps();
 });

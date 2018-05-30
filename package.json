@@ -22,6 +22,7 @@
   "dependencies": {
     "config": "^1.30.0",
     "config.js": "^0.1.0",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "kelvin-to-fahrenheit": "^1.1.0"
   }
 }
