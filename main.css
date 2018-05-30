@@ -47,6 +47,11 @@ ul li {
   display: inline-block;
 }
 
+.toggleBtn {
+    height: 30px;
+    width: 50px;
+    
+}
 /* .forecast {
   border: 1px solid gray;
 } */
