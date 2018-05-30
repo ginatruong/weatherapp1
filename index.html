@@ -24,24 +24,21 @@
                 <input type="text" id="cityInput" placeholder="Enter your city, state..." autofocus>
                 <input type="submit" value="SEARCH">
                 <br>
+                <select name="unitOfMeasure" id="unitOfMeasure">
+                    <option value="F">Farenheight</option>
+                    <option value="C">Celcius</option>
+                </select>
                 <br>
-        
-                    <button class="toggleBtnC">
-                        <span>&#8451;</span> </button>
-                    <button class="toggleBtnF">
-                        <span>&#8457;</span>
-                    </button>
-            
-                </div>
-            </form>
         </div>
-        <div class="weather-info" id="output">
-            <div class="div-info">
-                <div class="icon-div" id="icon-div"></div>
-                <div class="details" id="details-div"></div>
-            </div>
-            <div class="forecast" id="outputforecast"></div>
+        </form>
+    </div>
+    <div class="weather-info" id="output">
+        <div class="div-info">
+            <div class="icon-div" id="icon-div"></div>
+            <div class="details" id="details-div"></div>
         </div>
+        <div class="forecast" id="outputforecast"></div>
+    </div>
     </div>
     <footer role="contentinfo">Created by: Gina Truong |
         <span class="openWeather">Weather data from Open Weather Map</span>
