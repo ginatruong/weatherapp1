@@ -25,7 +25,7 @@ function renderResults(list) {
 	<img src="#" alt="">
   </div>
   <div class="main-weather-section">
-  <p class="convert-to-next" data="kelvin" id="outputTemperature">${list.main.temp}</p>
+  <p class="convert-to-next" data-kelvin="${list.main.temp}" id="outputTemperature">${list.main.temp}</p>
   <h3 class="humidity">Humidty: ${list.main.humidity}%</h3>
   <ul class="weather-description">
   <li>${list.weather[0].description}</li>
@@ -34,6 +34,14 @@ function renderResults(list) {
   </div>`;
 }
 
+function changeTemp() {
+	$('.convert-to-next').forEach((element) => {
+		console.log(element);
+	});
+}
+// for (let i = 0; i < element.length; i++) {
+// 	console.log('hi');
+// }
 // //converting Temps K to F (original)
 // function convertingTempsF(valNumF) {
 // 	$('#outputTemperature').html((parseFloat(valNumF) - 273.15) * 1.8) + 32;
@@ -57,11 +65,8 @@ function renderResults(list) {
 $('#unitOfMeasure').on('change', function(event) {
 	unitOfMeasure = $(this).val();
 	console.log(unitOfMeasure);
+	changeTemp();
 });
-
-function  () {
-
-}
 
 //Display Results
 function displaySearchData(data) {
