@@ -34,17 +34,27 @@ function renderResults(list) {
   </div>`;
 }
 
-let degree = '$#8451';
+let degreeC = '$#8451';
+let degreeF = '$#8457';
 
-//converting Temps
+//converting Temps K to F (original)
 function convertingTempsF(valNumF) {
-	valNumF = parseFloat(`${list.main.temp}`);
-	$('#outputTemperature').html((valNum - 273.15) * 1.8) + 32;
+	$('#outputTemperature').html((parseFloat(valNumF) - 273.15) * 1.8) + 32;
 }
 
+//converting Temps from F to C
 function convertingTempsC(valNumC) {
-	valNumC = parseFloat(`${list.main.temp}`);
-	$('#outputTemperature').html(valNum - 273.15);
+	$('.toggleBtnF').on('click', function(event) {
+		valNumC = parseFloat(valNumC);
+		$('#outputTemperature').html(valNumC - 32) / 1.8;
+	});
+}
+
+//converting C to F
+function convertingTempsbacktoF(tempF) {
+	$('.toggleBtnC');
+	tempF = parseFloat(tempF);
+	$('#outputTemperature').html(tempF * 1.8) + 32;
 }
 
 //Display Results
@@ -58,5 +68,4 @@ $('#searchForm').submit((event) => {
 	const input = $('#cityInput');
 	getDataFromApi(input.val(), displaySearchData);
 	input.val('');
-	convertingTemps();
 });
