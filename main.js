@@ -25,11 +25,10 @@ function renderResults(list) {
 	<img src="#" alt="">
   </div>
   <div class="main-weather-section">
-  <p class="convert-to-next" data-kelvin="${list.main.temp}">${list.main.temp}</p>
+  <p class="convert-to-next" data-kelvin="${list.main.temp}">${list.main.temp} &#176&#8490</p>
   <h3 class="humidity">Humidty: ${list.main.humidity}%</h3>
   <ul class="weather-description">
   <li>${list.weather[0].description}</li>
-  <li>${list.main.temp_min} | ${list.main.temp_max}</li>
   </ul>
   </div>`;
 }
@@ -38,18 +37,18 @@ function convertToCurrentTemp(kelvinTemp) {
 	// return `do the conversion, ${kelvinTemp}`;
 	// let results = (kelvinTemp - 273.15) * 1.8 + 32;
 	// return results;
-	let results = `${kelvinTemp}`;
-	let resultF = `$('[value='F']')`;
-	let resultC = `$('[value='C']')`;
-	console.log(resultF);
-	if (resultF) {
-		return ((results - 273.15) * 1.8 + 32).toFixed();
-	} else if (resultC) {
-		return (results - 273.15).toFixed();
-	} else {
-		console.log('error');
-	}
+	let results = parseFloat(`${kelvinTemp}`);
+	// let resultF = `$('#unitOfMeasure').val('F')`;
+	// // let resultC = `$('[value='C']')`;
+	// // console.log(resultF);
+
+	return ((results - 273.15) * 1.8 + 32).toFixed() + '&#8457';
 }
+// else if (resultC) {
+// 	return (results - 273.15).toFixed() + '&#8450';
+// } else {
+// 	console.log('error');
+// }
 
 function changeTemp() {
 	$('.convert-to-next').each(function(index) {
@@ -94,6 +93,7 @@ function displaySearchData(data) {
 setTimeout(() => {
 	const input = $('#cityInput');
 	getDataFromApi(input.val(), displaySearchData);
+	convertToCurrentTemp();
 }, 250);
 
 $('#searchForm').on('submit', (event) => {
