@@ -35,7 +35,20 @@ function renderResults(list) {
 }
 
 function convertToCurrentTemp(kelvinTemp) {
-	return `haha do the conversion, ${kelvinTemp}`;
+	// return `do the conversion, ${kelvinTemp}`;
+	// let results = (kelvinTemp - 273.15) * 1.8 + 32;
+	// return results;
+	let results = `${kelvinTemp}`;
+	let resultF = `$('[value='F']')`;
+	let resultC = `$('[value='C']')`;
+	console.log(resultF);
+	if (resultF) {
+		return ((results - 273.15) * 1.8 + 32).toFixed();
+	} else if (resultC) {
+		return (results - 273.15).toFixed();
+	} else {
+		console.log('error');
+	}
 }
 
 function changeTemp() {
