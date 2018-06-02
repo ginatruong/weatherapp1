@@ -81,23 +81,23 @@ function changeTemp() {
 //weather icons
 function weatherIcon() {
 	if (`${list.weather[0].description}.match(/clouds/gi'`) {
-		// return $('.img-section').addClass('cloudy-icon');
-		return `<img src="./assets/cloudy.png" alt="cloudy-pic">`;
+		return $('.img-section').addClass('cloudy-icon');
+		// return `<img src="./assets/cloudy.png" alt="cloudy-pic">`;
 	} else if (`${list.weather[0].description}.match(/clear-sky/gi'`) {
-		// return $('.img-section').addClass('sunny');
-		return `<img src="./assets/sunny.png" alt="sunny-pic">`;
+		return $('.img-section').addClass('sunny');
+		// return `<img src="./assets/sunny.png" alt="sunny-pic">`;
 	} else if (`${list.weather[0].description}.match(/rain/gi'`) {
-		// return $('.img-section').addClass('heavy-rain');
-		return `<img src="./assets/rain.png" alt="rainy-pic">`;
+		return $('.img-section').addClass('heavy-rain');
+		// return `<img src="./assets/rain.png" alt="rainy-pic">`;
 	} else if (`${list.weather[0].description}.match(/thunder/gi'`) {
-		// return $('.img-section').addClass('thunderstorm');
-		return `<img src="./assets/thunderstorm.png" alt="thunderstorm-pic">`;
+		return $('.img-section').addClass('thunderstorm');
+		// return `<img src="./assets/thunderstorm.png" alt="thunderstorm-pic">`;
 	} else if (`${list.weather[0].description}.match(/snow/gi'`) {
-		// return $('.img-section').addClass('snow');
-		return `<img src="./assets/snow.png" alt="snow-pic">`;
+		return $('.img-section').addClass('snow');
+		// return `<img src="./assets/snow.png" alt="snow-pic">`;
 	} else if (`${list.weather[0].description}.match(/moon/gi'`) {
-		// return $('.img-section').addClass('moon-night');
-		return `<img src="./assets/moon.png" alt="moon-pic">`;
+		return $('.img-section').addClass('moon-night');
+		// return `<img src="./assets/moon.png" alt="moon-pic">`;
 	}
 }
 $('#unitOfMeasure').on('change', function(event) {
@@ -115,7 +115,6 @@ setTimeout(() => {
 	const input = $('#cityInput');
 	getDataFromApi(input.val(), displaySearchData);
 	convertToCurrentTemp();
-	weatherIcon();
 }, 250);
 
 $('#searchForm').on('submit', (event) => {

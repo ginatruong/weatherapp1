@@ -30,6 +30,11 @@ input[type="text"] {
 .searchButton  {
   display: inline-block;
 }
+
+.img-section {
+  width: 100%;
+  height: 100%;
+}
 .unit-of-measure {
   text-align: center;
   font-size: 18px;
@@ -57,27 +62,27 @@ ul li {
 }
 
 .cloudy-icon {
-  background-image: url('./assets/cloudy.png');
+  background-image: url("./assets/cloudy.png");
 }
 
 .sunny {
-  background-image: url('./assets/sunny.png');
+  background-image: url("assets/sunny.png");
 }
 
 .heavy-rain {
-  background-image: url('./assets/rain.png');
+  background-image: url("./assets/rain.png");
 }
 
 .thunderstorm {
-  background-image: url('./assets/thunderstorm.png');
+  background-image: url("./assets/thunderstorm.png");
 }
 
 .snow {
-  background-image: url('./assets/snow.png');
+  background-image: url("./assets/snow.png");
 }
 
 .moon-night {
-  background-image: url('./assets/cloudy_moonnight.png');
+  background-image: url("./assets/cloudy_moonnight.png");
 }
 
 
