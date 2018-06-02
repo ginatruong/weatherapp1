@@ -22,10 +22,9 @@ function renderResults(list) {
 	return `
 	<br>
   <div class="img-section">	
-	<img src="#" alt="">
   </div>
   <div class="main-weather-section">
-  <p class="convert-to-next" data-kelvin="${list.main.temp}">${list.main.temp} &#176&#8490</p>
+  <p class="convert-to-next" data-kelvin="${list.main.temp}">${list.main.temp} &#8457</p>
   <h3 class="humidity">Humidty: ${list.main.humidity}%</h3>
   <ul class="weather-description">
   <li>${list.weather[0].description}</li>
@@ -37,7 +36,7 @@ function convertToCurrentTemp(kelvinTemp) {
 	// return `do the conversion, ${kelvinTemp}`;
 	// let results = (kelvinTemp - 273.15) * 1.8 + 32;
 	// return results;
-	let results = parseFloat(`${kelvinTemp}`);
+	let results = kelvinTemp;
 	// let resultF = `$('#unitOfMeasure').val('F')`;
 	// // let resultC = `$('[value='C']')`;
 	// // console.log(resultF);
@@ -79,6 +78,28 @@ function changeTemp() {
 // 	$('#outputTemperature').html(tempF * 1.8) + 32;
 // }
 
+//weather icons
+function weatherIcon() {
+	if (`${list.weather[0].description}.match(/clouds/gi'`) {
+		// return $('.img-section').addClass('cloudy-icon');
+		return `<img src="./assets/cloudy.png" alt="cloudy-pic">`;
+	} else if (`${list.weather[0].description}.match(/clear-sky/gi'`) {
+		// return $('.img-section').addClass('sunny');
+		return `<img src="./assets/sunny.png" alt="sunny-pic">`;
+	} else if (`${list.weather[0].description}.match(/rain/gi'`) {
+		// return $('.img-section').addClass('heavy-rain');
+		return `<img src="./assets/rain.png" alt="rainy-pic">`;
+	} else if (`${list.weather[0].description}.match(/thunder/gi'`) {
+		// return $('.img-section').addClass('thunderstorm');
+		return `<img src="./assets/thunderstorm.png" alt="thunderstorm-pic">`;
+	} else if (`${list.weather[0].description}.match(/snow/gi'`) {
+		// return $('.img-section').addClass('snow');
+		return `<img src="./assets/snow.png" alt="snow-pic">`;
+	} else if (`${list.weather[0].description}.match(/moon/gi'`) {
+		// return $('.img-section').addClass('moon-night');
+		return `<img src="./assets/moon.png" alt="moon-pic">`;
+	}
+}
 $('#unitOfMeasure').on('change', function(event) {
 	unitOfMeasure = $(this).val();
 	changeTemp();
@@ -94,6 +115,7 @@ setTimeout(() => {
 	const input = $('#cityInput');
 	getDataFromApi(input.val(), displaySearchData);
 	convertToCurrentTemp();
+	weatherIcon();
 }, 250);
 
 $('#searchForm').on('submit', (event) => {
@@ -101,4 +123,5 @@ $('#searchForm').on('submit', (event) => {
 	const input = $('#cityInput');
 	getDataFromApi(input.val(), displaySearchData);
 	input.val('');
+	weatherIcon();
 });

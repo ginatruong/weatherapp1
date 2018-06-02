@@ -38,7 +38,7 @@ input[type="text"] {
   background-color: azure;
 }
 footer {
-  margin-top: 450px;
+  margin-top: 10px;
   width: 100%;
   color: white;
   font-weight: bold;
@@ -55,6 +55,31 @@ ul li {
   line-height: 2em;
   display: inline-block;
 }
+
+.cloudy-icon {
+  background-image: url('./assets/cloudy.png');
+}
+
+.sunny {
+  background-image: url('./assets/sunny.png');
+}
+
+.heavy-rain {
+  background-image: url('./assets/rain.png');
+}
+
+.thunderstorm {
+  background-image: url('./assets/thunderstorm.png');
+}
+
+.snow {
+  background-image: url('./assets/snow.png');
+}
+
+.moon-night {
+  background-image: url('./assets/cloudy_moonnight.png');
+}
+
 
 .toggleBtn {
     height: 30px;
